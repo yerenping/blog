@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <!--移动端预览-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>归档</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <!--引入自定义CSS-->
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(4)" class="ui inverted attached segment segment m-padded-tb-mini m-shadow-small">
+        <!--/*-->
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">小小叶儿</h2>
+                <a href="#"  class="m-item item m-mobile-hide" ><i class="small home icon"></i>首页</a>
+                <a href="#"  class="m-item item m-mobile-hide " ><i class="small idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide active"><i class="small tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="small clone icon"></i>归档</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="small info icon"></i>站长信息</a>
+                <div class="right m-item item m-mobile-hide">
+                    <form name="search" action="#" target="_blank" method="post">
+                        <div class="ui icon inverted  input">
+                            <input type="text" name="query" placeholder="Search....">
+                            <i class="search icon link"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--menu toggle无任何显示意思-->
+            <a href="" class="ui icon menu toggle black button m-right-top m-mobile-show">
+                <i class="sidebar icon"></i>
+            </a>
+            <!--*/-->
+    </nav>
+
+
+    <!--中间内容-->
+    <div class="m-container-small m-padded-tb-big">
+        <!--适应移动端手机-->
+        <div class="ui container">
+            <!--header-->
+            <div class="ui padded top attached segment ">
+                <div class="ui middle aligned two column grid">
+                    <dvi class="column">
+                        <h3 class="ui teal header">归档</h3>
+                    </dvi>
+                    <dvi class="right aligned column">
+                        共 <h2 class="ui orange header m-inline-blok m-text-thin" th:text="${blogCount}">14</h2>条
+                    </dvi>
+                </div>
+            </div>
+            <!--按照年份归档内容-->
+            <th:block th:each="item : ${archiveMap}">
+            <h3 class="ui center aligned header" th:text="${item.key}">2019</h3>
+            <div class="ui fluid vertical menu">
+                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog: ${item.value}">
+                     <span>
+                         <i class=" teal tiny circle icon "></i>
+                         <span th:text="${blog.title}">关于如何学习JavaEE</span>
+                         <div class="ui teal basic small label m-margin-left" th:text="${#dates.format(blog.updateTime,'MMMdd')}">10月01</div>
+                     </span>
+                          <div class="ui orange basic label" th:text="${blog.flag}">原创</div>
+                </a>
+                <!--/*-->
+                <a href="#" target="_blank" class="item">
+                     <span>
+                         <i class=" teal tiny circle icon "></i>关于如何学习JavaEE
+                         <div class="ui teal basic small label m-margin-left">10月01</div>
+                     </span>
+                    <div class="ui orange basic  label">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                     <span>
+                         <i class=" teal tiny circle icon "></i>关于如何学习JavaEE
+                         <div class="ui teal basic small label m-margin-left">10月01</div>
+                     </span>
+                    <div class="ui orange basic  label">原创</div>
+                </a>
+                <!--*/-->
+            </div>
+            <!--/*-->
+            <h3 class="ui center aligned header">2018</h3>
+            <div class="ui fluid vertical menu">
+                <a href="#" target="_blank" class="item">
+                     <span>
+                         <i class=" teal tiny circle icon "></i>关于如何学习JavaEE
+                         <div class="ui teal basic small label m-margin-left">10月01</div>
+                     </span>
+                    <div class="ui orange basic  label">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                     <span>
+                         <i class=" teal tiny circle icon "></i>关于如何学习JavaEE
+                         <div class="ui teal basic small label m-margin-left">10月01</div>
+                     </span>
+                    <div class="ui orange basic  label">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                     <span>
+                         <i class=" teal tiny circle icon "></i>关于如何学习JavaEE
+                         <div class="ui teal basic small label m-margin-left">10月01</div>
+                     </span>
+                    <div class="ui orange basic  label">原创</div>
+                </a>
+            </div>
+
+            <h3 class="ui center aligned header">2017</h3>
+            <div class="ui fluid vertical menu">
+                <a href="#" target="_blank" class="item">
+                     <span>
+                         <i class=" teal tiny circle icon "></i>关于如何学习JavaEE
+                         <div class="ui teal basic small label m-margin-left">10月01</div>
+                     </span>
+                    <div class="ui orange basic  label">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                     <span>
+                         <i class=" teal tiny circle icon "></i>关于如何学习JavaEE
+                         <div class="ui teal basic small label m-margin-left">10月01</div>
+                     </span>
+                    <div class="ui orange basic  label">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                     <span>
+                         <i class=" teal tiny circle icon "></i>关于如何学习JavaEE
+                         <div class="ui teal basic small label m-margin-left">10月01</div>
+                     </span>
+                    <div class="ui orange basic  label">原创</div>
+                </a>
+            </div>
+            <!--*/-->
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <!--底部-->
+    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive ">
+        <!--/*-->
+        <div class="ui center aligned container ">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <h4 class="ui inverted header m-opacity-min">站长微信</h4>
+                        <div class="item">
+                            <img src="../static/images/WeChat.jpg" th:src="@{/images/WeChat.jpg}" CLASS="ui rounded image" alt="" style="width:110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-opacity-min">最新动态</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">我在等你2019年</a>
+                        <a href="#" class="item">idea的操作笔记</a>
+                        <a href="#" class="item">SpringBoot学习计划</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-opacity-min">联系作者</h4>
+                    <div class="ui inverted link list">
+                        <a href="https://space.bilibili.com/393270022" class="item">b站</a>
+                        <a href="#" class="item">QQ:1515177029</a>
+                        <a href="#" class="item">邮箱:yerenping@aliyun.com</a>
+                    </div>
+
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-opacity-min">关于作者</h4>
+                    <p class="m-text-thin m-text-spaced m-opacity-min m-text-lined">作者是一名springboot爱好者,是一名正在努力奋斗的学生,主要学习JavaEE开发,Web前端等技术.作者是个喜欢旅行的孩子,目标是游遍全世界！</p>
+                </div>
+            </div>
+            <!--分割线-->
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copy © 2019 - 2020 作者:小小叶儿 此站仅供个人所有 如有疑问联系作者</p>
+        </div>
+        <!--*/-->
+    </footer>
+
+    <!--引入所需要的JS-->
+    <th:block th:replace="_fragments :: script">
+
+    </th:block>
+
+    <!--声明行内js代码域-->
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+    </script>
+</body>
+</html>

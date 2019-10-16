@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <!--移动端预览-->
+    <meta name="viewport" content="device-width, initial-scale=1.0">
+
+    <title>后台管理-新增标签</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <!--引入Markdown插件所需要的CSS-->
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" />
+    <!--引入自定义CSS-->
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="admin/_fragments :: menu(3)" class="ui inverted attached segment segment m-padded-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">后台管理</h2>
+                    <a href="#" class="m-item active item m-mobile-hide"><i class="small home icon"></i>博客管理</a>
+                <a href="#" class="m-item item  m-mobile-hide"><i class="small idea icon"></i>分类管理</a>
+                <a href="#" class="m-item item m-mobile-hide" ><i class="small tags icon"></i>标签管理</a>
+                <a href="#" class="m-item item m-mobile-hide" ><i class="small idea icon"></i>个人信息</a>
+                <div class="right m-item m-mobile-hide menu">
+                    <div class="ui dropdown item">
+                        <div class="text ">
+                            <img class="ui avatar image" src="https://picsum.photos/id/1011/100/100">
+                            叶仁平
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" class="item">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--menu toggle无任何显示意思-->
+        <a href="" class="ui icon menu toggle black button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <!--二级导航-->
+    <div class="ui attached pointing menu">
+      <div class="ui container">
+          <div class="right menu">
+              <a href="#"  th:href="@{/admin/tags/input}" class=" active  teal basic item">新增</a>
+              <a href="" th:href="@{/admin/tags}" class=" item">列表</a>
+          </div>
+      </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <!--中间内容-->
+    <div class="m-container-small m-padded-tb-big">
+        <!--适应移动端手机-->
+        <div class="ui container">
+            <form action="#" method="post"  th:object="${tag}" th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})} "  class="ui form">
+                <div class="required field">
+                    <input type="hidden" name="id" th:value="*{id}">
+                    <div class="ui left labeled input">
+                        <label class="ui teal basic label">名称</label>
+                        <input type="text" name="name" placeholder="标签名称"  th:value="*{name}">
+                    </div>
+                </div>
+                <!--表单校验-->
+                <!--错误提示-->
+                <div class="ui error message">
+
+                </div>
+                <!--/*/
+                <div class="ui negative message" th:if="${#fields.hasErrors('name')}"  >
+                  <i class="close icon"></i>
+                  <div class="header">验证失败</div>
+                  <p th:errors="*{name}">提交信息不符合规则</p>
+                </div>
+                 /*/-->
+
+                <!--返回、提交-->
+                <div class="ui right aligned container">
+                    <!--onclick="window.history.go(-1)返回上一页面-->
+                    <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+
+                    <button class="ui teal submit button">提交</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <br>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br>
+    <!--底部-->
+    <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive ">
+        <div class="ui center aligned container ">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <h4 class="ui inverted header m-opacity-min">站长微信</h4>
+                        <div class="item">
+                            <img src="../../static/images/WeChat.jpg" CLASS="ui rounded image" alt="" style="width:110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-opacity-min">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">2019一年收获总结</a>
+                        <a href="#" class="item">idea的操作笔记</a>
+                        <a href="#" class="item">SpringBoot学习计划</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-opacity-min">联系作者</h4>
+                    <div class="ui inverted link list">
+                        <a href="https://space.bilibili.com/393270022" class="item">b站</a>
+                        <a href="#" class="item">QQ:1515177029</a>
+                        <a href="#" class="item">邮箱:yerenping@aliyun.com</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-opacity-min">关于作者</h4>
+                    <p class="m-text-thin m-text-spaced m-opacity-min m-text-lined">作者是一名springboot爱好者,是一名正在努力奋斗的学生,主要学习JavaEE开发,Web前端等技术.作者是个喜欢旅行的孩子,目标是游遍全世界！</p>
+                </div>
+            </div>
+            <!--分割线-->
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copy © 2019 - 2020 作者:小小叶儿 此站仅供个人所有 如有疑问联系作者</p>
+        </div>
+    </footer>
+
+
+    <!--/*/<th:block th:replace="admin/_fragments :: script">/*/-->
+        <!--引入jQuery-->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+        <!--引入sementic-ui模板所需要的js-->
+        <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+        <!--引入Markdown插件需要引入的js-->
+        <script src="../../static/lib/editormd/editormd.min.js"></script>
+    <!--/*/</th:block>/*/-->
+    <!--声明行内js代码域-->
+    <script>
+        /*移动端显示导航栏设置*/
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+        /*导航栏用户注销显示*/
+        $('.ui.dropdown').dropdown({
+            on:'hover'
+        });
+        /*表单校验*/
+        $('.ui.form').form({
+            fields:{
+                title:{
+                    identifier:'name',
+                    rules : [{
+                        type : 'empty',
+                        prompt:'请输入标签名称！'
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>

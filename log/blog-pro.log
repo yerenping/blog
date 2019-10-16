@@ -1,0 +1,7 @@
+2019-09-26 09:09:32.299  INFO 9464 --- [restartedMain] com.yrp.BlogApplication                  : Starting BlogApplication on DESKTOP-OCAC3AE with PID 9464 (D:\IDEA\workpace\blog\target\classes started by 叶先生 in D:\IDEA\workpace\blog)
+2019-09-26 09:09:32.303  INFO 9464 --- [restartedMain] com.yrp.BlogApplication                  : The following profiles are active: pro
+2019-09-26 09:09:39.625  INFO 9464 --- [restartedMain] com.yrp.BlogApplication                  : Started BlogApplication in 7.999 seconds (JVM running for 9.53)
+2019-09-26 09:09:48.553  INFO 9464 --- [http-nio-80-exec-2] com.yrp.aspect.LogAspect                 : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.yrp.controller.IndexController.index', args=[]}
+2019-09-26 09:09:48.561  INFO 9464 --- [http-nio-80-exec-2] com.yrp.aspect.LogAspect                 : Result : index
+2019-09-26 09:28:01.875  INFO 3924 --- [restartedMain] com.yrp.BlogApplication                  : Starting BlogApplication on DESKTOP-OCAC3AE with PID 3924 (D:\IDEA\workpace\blog\target\classes started by 叶先生 in D:\IDEA\workpace\blog)
+2019-09-26 09:28:01.875  INFO 3924 --- [restartedMain] com.yrp.BlogApplication                  : The following profiles are active: pro

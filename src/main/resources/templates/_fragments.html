@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+
+    <meta charset="UTF-8">
+    <!--移动端预览-->
+    <meta name="viewport" content="device-width, initial-scale=1.0">
+    <title th:replace="${title}">博客详情</title>
+    <!--引入semantic-ui框架-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <!--引入页面排版CSS-->
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <!--引入动画插件CSS-->
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <!--引入代码高亮插件CSS-->
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <!--引入目录生成插件CSS-->
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+    <!--引入自定义CSS-->
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <!--图标部署-->
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="bookmark" href="/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+<!--导航-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">小小叶儿</h2>
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" th:classappend="${n==1}? 'active'"><i class="small home icon"></i><span th:text="#{index.home}">首页</span></a>
+            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2}? 'active'"><i class="small idea icon"></i><span th:text="#{index.type}"分类></span></a>
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3}? 'active'" ><i class="small tags icon" ></i><span th:text="#{index.tag}">标签</span></a>
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4}? 'active'" ><i class="small clone icon" ></i><span th:text="#{index.archive}">归档</span></a>
+            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5}? 'active'"><i class="small info icon"></i><span th:text="#{index.aboutme}">站长信息</span></a>
+            <div class="right m-item item m-mobile-hide">
+                <form name="search" action="" th:action="@{/search}" target="_blank" method="post">
+                    <div class="ui icon inverted  input">
+                        <input type="text" name="query" placeholder="Search.." th:value="${query}">
+                        <i onclick="document.forms['search'].submit()" class="search icon link"></i>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--menu toggle无任何显示意思-->
+    <a href="#" class="ui icon menu toggle black button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--底部footer-->
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive ">
+    <div class="ui center aligned container ">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <h4 class="ui inverted header m-opacity-min">站长微信</h4>
+                    <div class="item">
+                        <img src="../static/images/WeChat.jpg" th:src="@{/images/WeChat.jpg}" CLASS="ui rounded image" alt="" style="width:110px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-opacity-min">最新动态</h4>
+                <div id="newblog-container">
+                    <div class="ui inverted link list" th:fragment="newblogList">
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${newblogs}" th:text="${blog.title}">我在等你2019年</a>
+                        <!--/*-->
+                        <a href="#" class="item">idea的操作笔记</a>
+                        <a href="#" class="item">SpringBoot学习计划</a>
+                        <!--*/-->
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-opacity-min">联系作者</h4>
+                <div class="ui inverted link list">
+                    <a href="https://space.bilibili.com/393270022" class="item">b站</a>
+                    <a href="#" class="item">QQ:1515177029</a>
+                    <a href="#" class="item">邮箱:yerenping@aliyun.com</a>
+                </div>
+
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-opacity-min">关于作者</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-min m-text-lined">作者是一名springboot爱好者,是一名正在努力奋斗的学生,主要学习JavaEE开发,Web前端等技术.作者是个喜欢旅行的孩子,目标是游遍全世界！</p>
+                <!--后台管理员登录入口-->
+                <h4 class="ui inverted header m-opacity-min"><a class="item m-opacity-tiny" href="#" th:href="@{/admin}" style="color: #6577b9">后台管理</a></h4>
+            </div>
+        </div>
+        <!--分割线-->
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copy © 2019 - 2020 作者:小小叶儿 此站仅供个人所有 如有疑问联系作者</p>
+    </div>
+</footer>
+
+<!--所有需要引入的JS-->
+<th:block th:fragment="script">
+    <!--引入jQuery-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <!--引入semantic-ui的 JS-->
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <!--引入平滑滚动插件CDN-->
+    <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+    <!--引入代码高亮插件 JS-->
+    <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+    <!--映入目录生成插件 JS-->
+    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+    <!--引入二维码生成插件 JS-->
+    <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+    <!--引入waypoints插件滚动条-->
+    <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+    <script>
+        $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+    </script>
+</th:block>
+</body>
+</html>
