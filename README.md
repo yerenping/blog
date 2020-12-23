@@ -6,7 +6,7 @@
 
 **项目描述：**
 
-用于个人博客书写的一个简约型博客网站【http://yerenping.cn】，主要用于博主分享学习经验，书写 技术文章，笔记以及日常生活的记录。 
+用于个人博客书写的一个简约型博客网站【[yerenping.cn](http://yerenping.cn/)】，主要用于博主分享学习经验，书写 技术文章，笔记以及日常生活的记录。 
 
 **涉及技术：**
 
@@ -73,9 +73,9 @@ https://www.bilibili.com/video/BV1wE411e7r9（复制到浏览器地址栏打开�
 
 # 三、博客演示地址
 
-前台页面(http://www.yerenping.cn)
+前台页面(http://yerenping.cn)
 
-[单击跳转](http://www.yerenping.cn)
+[单击跳转](http://yerenping.cn)
 
 ![image-20201105130306452](https://yerenping.oss-cn-beijing.aliyuncs.com/imagesimage-20201105130306452.png)
 
@@ -85,9 +85,9 @@ https://www.bilibili.com/video/BV1wE411e7r9（复制到浏览器地址栏打开�
 
 
 
-后台页面（http://www.yerenping.cn/admin）
+后台页面（http://yerenping.cn/admin）
 
-[点击跳转](http://www.yerenping.cn/admin)
+[点击跳转](http://yerenping.cn/admin)
 
 ![image-20201105130405752](https://yerenping.oss-cn-beijing.aliyuncs.com/imagesimage-20201105130405752.png) 
 
@@ -101,5 +101,6 @@ https://www.bilibili.com/video/BV1wE411e7r9（复制到浏览器地址栏打开�
 
 地址：https://github.com/yerenping/blog
 
+![image-20201105131441330](https://yerenping.oss-cn-beijing.aliyuncs.com/imagesimage-20201105131441330.png) 
 
-
+(注：图片若无法显示，需要在有网络的环境下进行观看，或者观看pdf版)
